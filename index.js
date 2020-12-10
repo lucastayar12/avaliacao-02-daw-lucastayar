@@ -8,16 +8,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(express.static('public'));
+app.use(express.static('node_modules'));
 
 db.sequelize.sync({ alter: true }).then(() => {
     console.log("Base de dados criada com sucesso")
 })
 
-require('./src/user/routes')(app)
-require('./src/posts/routes')(app)
+require('./src/registro/routes')(app)
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/views/index.html");
+})
+
+app.get("/registro", (req,res) => {
+    res.sendFile(__dirname + "/public/views/registro.html")
+})
+
+app.get("/consulta", (req,res) => {
+    
+    res.sendFile(__dirname + "/public/views/consulta.html")
+
 })
 
 

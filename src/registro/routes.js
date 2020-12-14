@@ -10,4 +10,9 @@ module.exports = (app) => {
     //DELETA O MENINU !!
     app.delete('/consulta', controller.delete)
 
+    //EDITA MEMINU
+    app.put('/edita', controller.update)
+
+    app.post('/edita', controller.consultacpf)
+
 }

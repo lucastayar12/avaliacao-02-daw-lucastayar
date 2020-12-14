@@ -2,16 +2,21 @@ const db = require('../../src/configs/sequelize');
 const { Model, DataTypes } = db.Sequelize;
 const sequelize = db.sequelize;
 
-class Registro extends Model {}
+class Registro extends Model { }
 
 Registro.init({
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true
+    },
     nome: {
         type: DataTypes.STRING,
         allowNull: false
     },
     cpf: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     },
     dat_Nasc: {
         type: DataTypes.DATEONLY,
@@ -34,6 +39,6 @@ Registro.init({
         allowNull: false
     }
 
-}, {sequelize, modelName: 'cadastros'})
+}, { sequelize, modelName: 'cadastros' })
 
 module.exports = Registro;

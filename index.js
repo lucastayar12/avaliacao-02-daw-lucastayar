@@ -29,7 +29,11 @@ app.get("/consulta", (req,res) => {
     res.sendFile(__dirname + "/public/views/consulta.html")
 
 })
+app.get("/edita", (req,res) => {
+    
+    res.sendFile(__dirname + "/public/views/edita.html")
 
+})
 
 var server = app.listen(3000, () => {
     console.log('Servidor está rodando na porta ' + server.address().port + ' no host ' + server.address().address);
